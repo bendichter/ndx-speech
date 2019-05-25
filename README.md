@@ -26,16 +26,7 @@ sentences.add_row(start_time=1.2, stop_time=1.3, label='Little pigs are bad carp
 
 # or use pandas DataFrames:
 import pandas as pd
-
-df_sentences = pd.DataFrame(
-    {'start_time': [0.1, 1.2],
-     'stop_time': [0.5, 1.3],
-      'label': ['I never said she stole my money',
-                'Little pigs are bad carpenters'],
-     # custom column
-     'quality': [0.5, 1.0]})
-
-sentences = TimeIntervals.from_dataframe(df_sentences)
+sentences = TimeIntervals.from_dataframe(pd.read_csv('some_file.csv'))
 
 # similar for words, syllables, phonemes, and phoneme features
 
