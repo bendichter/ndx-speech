@@ -25,6 +25,8 @@ setup_args = {
     'classifiers': [
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: OS Independent",
     ],
     'zip_safe': False
 }
