@@ -9,7 +9,7 @@ speech. It consists of a single neurodata_type, `Transcription`, which is an `NW
 ## Installation
 
 ```bash
-pip install git+https://github.com/bendichter/ndx-speech.git
+pip install ndx-speech
 ```
 
 ## Usage
