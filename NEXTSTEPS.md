@@ -72,7 +72,7 @@ your extension.
     - You may need to modify `setup.py`
 
 9. Go to https://github.com/nwb-extensions/staged-extensions and fork the
-repository to your local filesystem.
+repository and clone on your local filesystem.
 
 10. Copy the directory `staged-extensions/example` to a new directory
 `staged-extensions/ndx-speech`.

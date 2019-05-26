@@ -7,7 +7,7 @@ from shutil import copy2
 
 setup_args = {
     'name': 'ndx-speech',
-    'version': '0.1.0',
+    'version': '0.1.1',
     'description': 'transcriptions and other speech-related data',
     'author': 'Ben Dichter',
     'author_email': 'ben.dichter@gmail.com',

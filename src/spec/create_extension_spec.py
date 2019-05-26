@@ -2,7 +2,6 @@
 from pynwb.spec import (
     NWBNamespaceBuilder,
     NWBGroupSpec,
-    NWBAttributeSpec,
 )
 from export_spec import export_spec
 
@@ -14,25 +13,24 @@ def main():
                                      author='Ben Dichter',
                                      contact='ben.dichter@gmail.com')
 
-    # TODO: define the new data types
-    custom_electrical_series = NWBGroupSpec(
-        neurodata_type_def='TetrodeSeries',
-        neurodata_type_inc='ElectricalSeries',
-        doc='A custom ElectricalSeries for my lab',
-        attributes=[
-            NWBAttributeSpec(
-                name='trode_id',
-                doc='the tetrode id',
-                dtype='int'
-            )
-        ],
-    )
+    Transcription = NWBGroupSpec(neurodata_type_def='Transcription', neurodata_type_inc='NWBDataInterface',
+                             name='transcription',
+                             doc='holds tiers for different levels of transcription (e.g. sentence, word, phoneme)')
+    Transcription.add_attribute(name='help', dtype='text', value='holds tiers for different levels of transcription',
+                                doc='doc')
+    Transcription.add_attribute(name='settings', dtype='text', required=False,
+                                doc='text field for entering any algorithms and settings used for automatic transcription')
+    
+    for feature_type in ('phoneme_features', 'phonemes', 'syllables', 'words', 'sentences'):
+        intervals = Transcription.add_group(name=feature_type, neurodata_type_inc='TimeIntervals', quantity='?',
+                                            doc='label, start, and stop times for ' + feature_type)
+        intervals.add_attribute(name='help', dtype='text', value='holds ' + feature_type + ' tier times',
+                                doc='doc')
 
-    # TODO: add the new data types to this list
-    new_data_types = [custom_electrical_series]
+    new_data_types = [Transcription]
 
-    # TODO: include the types that are used and their namespaces (where to find them)
-    ns_builder.include_type('ElectricalSeries', namespace='core')
+    ns_builder.include_type('NWBDataInterface', namespace='core')
+    ns_builder.include_type('TimeIntervals', namespace='core')
 
     export_spec(ns_builder, new_data_types)
 
