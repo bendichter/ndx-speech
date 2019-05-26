@@ -8,7 +8,7 @@ from export_spec import export_spec
 
 def main():
     ns_builder = NWBNamespaceBuilder(doc='transcriptions and other speech-related data',
-                                     name='ndx-speech',
+                                     name='speech',
                                      version='0.1.0',
                                      author='Ben Dichter',
                                      contact='ben.dichter@gmail.com')
