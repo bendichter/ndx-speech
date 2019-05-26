@@ -9,7 +9,7 @@ from export_spec import export_spec
 def main():
     ns_builder = NWBNamespaceBuilder(doc='transcriptions and other speech-related data',
                                      name='speech',
-                                     version='0.1.0',
+                                     version='0.1.1',
                                      author='Ben Dichter',
                                      contact='ben.dichter@gmail.com')
 

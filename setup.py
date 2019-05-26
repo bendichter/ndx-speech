@@ -7,7 +7,7 @@ from shutil import copy2
 
 setup_args = {
     'name': 'ndx-speech',
-    'version': '0.1.2',
+    'version': '0.1.4',
     'description': 'transcriptions and other speech-related data',
     'author': 'Ben Dichter',
     'author_email': 'ben.dichter@gmail.com',
@@ -19,8 +19,8 @@ setup_args = {
     'packages': find_packages('src/pynwb'),
     'package_dir': {'': 'src/pynwb'},
     'package_data': {'ndx_speech': [
-        'spec/ndx-speech.namespace.yaml',
-        'spec/ndx-speech.extensions.yaml',
+        'spec/speech.namespace.yaml',
+        'spec/speech.extensions.yaml',
     ]},
     'classifiers': [
         "Intended Audience :: Developers",
@@ -33,8 +33,8 @@ setup_args = {
 
 
 def _copy_spec_files(project_dir):
-    ns_path = os.path.join(project_dir, 'spec', 'ndx-speech.namespace.yaml')
-    ext_path = os.path.join(project_dir, 'spec', 'ndx-speech.extensions.yaml')
+    ns_path = os.path.join(project_dir, 'spec', 'speech.namespace.yaml')
+    ext_path = os.path.join(project_dir, 'spec', 'speech.extensions.yaml')
 
     dst_dir = os.path.join(project_dir, 'src', 'pynwb', 'ndx_speech', 'spec')
     if not os.path.exists(dst_dir):
