@@ -12,9 +12,9 @@ nwbfile = NWBFile('aa','aa', datetime.now().astimezone())
 nwbfile.add_acquisition(Transcription(words=words))
 
 with NWBHDF5IO('test_transcription.nwb', 'w') as io:
-    io.write(nwbfile)
+    io.write(nwbfile, cache_spec=True)
 
-with NWBHDF5IO('test_transcription.nwb', 'r') as io:
+with NWBHDF5IO('test_transcription.nwb', 'r', load_namespaces=True) as io:
     nwbfile2 = io.read()
 
     assert(nwbfile.acquisition['transcription'].words.to_dataframe().equals(
